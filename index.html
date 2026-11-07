@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mathias Vessiere</title>
+    <meta name="description" content="Page personnelle de Mathias Vessiere. Contact : mathias.vess@proton.me" />
+    <!-- SEO : balises Open Graph pour le partage Google/réseaux -->
+    <meta property="og:title" content="Mathias Vessiere" />
+    <meta property="og:description" content="Page personnelle de Mathias Vessiere." />
+    <meta property="og:type" content="profile" />
+    <!-- Données structurées : aident Google à associer la page à votre identité -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mathias Vessiere",
+        "email": "mailto:mathias.vess@proton.me",
+        "url": "https://mathiasvessiere.com/",
+        "sameAs": ["https://signal.me/#eu/j6_s6SmW1mQHwvHQ5QKxsVOC2VEyY0xLxFXSJmevYYoKfBIQ3JZLSYCT_RrFEjdT"]
+      }
+    </script>
+    <style>
+      :root {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        color: #1a1a2e;
+        background: #f6f7fb;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+      .card {
+        background: #ffffff;
+        max-width: 560px;
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(20, 20, 60, 0.10);
+        padding: 48px 40px;
+        text-align: center;
+      }
+      .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 0 auto 24px;
+        background: #e8eaf6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 42px;
+        font-weight: 700;
+        color: #5c6bc0;
+        overflow: hidden;
+      }
+      .avatar img { width: 100%; height: 100%; object-fit: cover; }
+      h1 { font-size: 2rem; letter-spacing: 0.5px; }
+      p.bio {
+        margin-top: 14px;
+        color: #555;
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+      .contact-buttons { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; align-items: center; }
+      .contact {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        text-decoration: none;
+        padding: 13px 30px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: filter 0.2s;
+        width: fit-content;
+      }
+      .contact:hover { filter: brightness(1.15); }
+      .mail { background: #5c6bc0; }
+      .signal { background: #3a76f0; }
+      .pgp { margin-top: 28px; text-align: left; }
+      .pgp summary { cursor: pointer; font-weight: 600; color: #5c6bc0; font-size: 0.95rem; }
+      .pgp summary:hover { text-decoration: underline; }
+      .pgp-hint { margin: 12px 0 10px; font-size: 0.85rem; color: #777; line-height: 1.5; }
+      .pgp-key {
+        background: #f2f3f8;
+        border: 1px solid #e0e2ee;
+        border-radius: 10px;
+        padding: 14px;
+        font-size: 0.72rem;
+        overflow-x: auto;
+        white-space: pre;
+        max-height: 220px;
+      }
+      footer {
+        margin-top: 36px;
+        font-size: 0.8rem;
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <!-- Avatar : déposez votre photo sous le nom "avatar.png" à côté d'index.html -->
+      <div class="avatar" aria-label="Photo de Mathias Vessiere"><img src="avatar.png" alt="Mathias Vessiere" /></div>
+
+      <!-- SEO : votre nom exact en H1, c'est le signal principal pour Google -->
+      <h1>Mathias Vessiere</h1>
+
+      <p class="bio">
+        Bienvenue sur ma page personnelle.
+        <!-- Ajoutez ici 2-3 phrases sur vous : passions, ce que vous faites, pourquoi cette page existe -->
+      </p>
+
+      <!-- Bloc contact : e-mail (mailto:) et Signal -->
+      <div class="contact-buttons">
+        <a class="contact mail" href="mailto:mathias.vess@proton.me">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          mathias.vess@proton.me
+        </a>
+        <a class="contact signal" href="https://signal.me/#eu/j6_s6SmW1mQHwvHQ5QKxsVOC2VEyY0xLxFXSJmevYYoKfBIQ3JZLSYCT_RrFEjdT">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2z"/><path d="M5 21h14"/></svg>
+          Me contacter sur Signal
+        </a>
+      </div>
+
+      <!-- Clé publique PGP exportée depuis Proton -->
+      <details class="pgp">
+        <summary>Clé publique PGP (chiffrement des e-mails)</summary>
+        <p class="pgp-hint">Pour m'écrire de façon chiffrée, chiffrez votre message avec ma clé publique Proton ci-dessous. Empreinte&nbsp;: <code>448B 443B 3B40 C0EB C3D0 C292 37F5 CADA 9594 FFC7</code></p>
+        <pre class="pgp-key">-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+xjMEau9wnhYJKwYBBAHaRw8BAQdAjiZ0rQYJD5s27CGcIO5VBxDcOgGONepj
+nCG7hIVMhvHNL21hdGhpYXMudmVzc0Bwcm90b24ubWUgPG1hdGhpYXMudmVz
+c0Bwcm90b24ubWU+wsARBBMWCgCDBYJq73CeAwsJBwkQN/XK2pWU/8dFFAAA
+AAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9yZ3N6nKh/agggLpL5
+mJZaCKACx4Va8V7LZ3rJmUun2zZrAxUKCAQWAAIBAhkBApsDAh4BFiEERItE
+OztAwOvD0MKSN/XK2pWU/8cAAIr2AP9b4RjcXVX4Cf82Vaa2AiqW51wYTh7G
+rLdpjAvYJT2eewD+IyDXJPMCYfgYk3qfmL92O5R381OsCOCsz/coj68aGgnO
+OARq73CeEgorBgEEAZdVAQUBAQdAxYY7tv8Qot7zhwLjuc7KeaulrQb9T4pr
+1P/xDa+S+yEDAQgHwr4EGBYKAHAFgmrvcJ4JEDf1ytqVlP/HRRQAAAAAABwA
+IHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmeppVkWTClzSDbQHZZ+zRlX
+niT8MvEm8YAyqGW9sO9tYwKbDBYhBESLRDs7QMDrw9DCkjf1ytqVlP/HAABN
+6AEAsNM9iRKdLcq/XxFN4u+FFgwM50wIkGLle0QyHvLF7p8A/ipJx0Ys8fjf
+aeEeYRXDcXxJ7XbmIWFkvaZlxPq1Y3kJ
+=O8lk
+-----END PGP PUBLIC KEY BLOCK-----</pre>
+      </details>
+
+      <footer>© 2026 Mathias Vessiere</footer>
+    </main>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" nonce="tAlk4fV3QkoRAWfw3ou/ug==" data-cf-beacon='{"version":"2024.11.0","token":"36b4216ae2dc4d5488c249161e71fe1e","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
