@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="fr">
   <head>
@@ -9,6 +10,7 @@
     <meta property="og:title" content="Mathias Vessiere" />
     <meta property="og:description" content="Page personnelle de Mathias Vessiere." />
     <meta property="og:type" content="profile" />
+    <meta name="theme-color" content="#0d1021" />
     <!-- Données structurées : aident Google à associer la page à votre identité -->
     <script type="application/ld+json">
       {
@@ -23,17 +25,27 @@
     <style>
       :root {
         font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-        color: #1a1a2e;
-        background: #f6f7fb;
+        color: #e8eaf2;
+        background: #0d1021;
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background:
+          radial-gradient(ellipse 60% 40% at 50% 0%, rgba(92, 107, 192, 0.18), transparent),
+          #0d1021;
+      }
       .card {
-        background: #ffffff;
+        background: #161a30;
         max-width: 560px;
         width: 100%;
         border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(20, 20, 60, 0.10);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
         padding: 48px 40px;
         text-align: center;
       }
@@ -42,50 +54,71 @@
         height: 120px;
         border-radius: 50%;
         margin: 0 auto 24px;
-        background: #e8eaf6;
+        background: #232a4d;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 42px;
         font-weight: 700;
-        color: #5c6bc0;
+        color: #9aa7e8;
         overflow: hidden;
+        border: 3px solid #5c6bc0;
+        transition: box-shadow 0.25s ease, transform 0.25s ease;
+      }
+      .avatar:hover {
+        transform: scale(1.04);
+        box-shadow: 0 0 0 6px rgba(92, 107, 192, 0.25), 0 10px 30px rgba(0, 0, 0, 0.5);
       }
       .avatar img { width: 100%; height: 100%; object-fit: cover; }
-      h1 { font-size: 2rem; letter-spacing: 0.5px; }
-      p.bio {
-        margin-top: 14px;
-        color: #555;
-        font-size: 1.05rem;
-        line-height: 1.6;
+      h1 { font-size: 2rem; letter-spacing: 0.5px; color: #f4f5fb; }
+      .rule {
+        width: 56px;
+        height: 3px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, #5c6bc0, #3a76f0);
+        margin: 18px auto 0;
       }
+      .sys { margin-top: 14px; font-size: 0.95rem; color: #aab1c9; line-height: 1.6; }
       .contact-buttons { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; align-items: center; }
       .contact {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        color: #fff;
-        text-decoration: none;
         padding: 13px 30px;
         border-radius: 999px;
         font-weight: 600;
         font-size: 1rem;
-        transition: filter 0.2s;
+        text-decoration: none;
         width: fit-content;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
       }
-      .contact:hover { filter: brightness(1.15); }
-      .mail { background: #5c6bc0; }
-      .signal { background: #3a76f0; }
+      .contact:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(154, 167, 232, 0.35);
+        filter: brightness(1.15);
+      }
+      .contact:active { transform: translateY(0); box-shadow: none; }
+      .contact.mail {
+        color: #e8eaf2;
+        background: #2c3560;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .contact.signal {
+        color: #fff;
+        background: #3a76f0;
+      }
       .pgp { margin-top: 28px; text-align: left; }
-      .pgp summary { cursor: pointer; font-weight: 600; color: #5c6bc0; font-size: 0.95rem; }
-      .pgp summary:hover { text-decoration: underline; }
-      .pgp-hint { margin: 12px 0 10px; font-size: 0.85rem; color: #777; line-height: 1.5; }
+      .pgp summary { cursor: pointer; font-weight: 600; color: #9aa7e8; font-size: 0.95rem; }
+      .pgp summary:hover { color: #c5cdf5; }
+      .pgp-hint { margin: 12px 0 10px; font-size: 0.85rem; color: #8a92b0; line-height: 1.5; }
+      .pgp-hint code { color: #9aa7e8; }
       .pgp-key {
-        background: #f2f3f8;
-        border: 1px solid #e0e2ee;
+        background: #101329;
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 10px;
         padding: 14px;
         font-size: 0.72rem;
+        color: #aab1c9;
         overflow-x: auto;
         white-space: pre;
         max-height: 220px;
@@ -93,7 +126,7 @@
       footer {
         margin-top: 36px;
         font-size: 0.8rem;
-        color: #aaa;
+        color: #5d6484;
       }
     </style>
   </head>
@@ -104,11 +137,8 @@
 
       <!-- SEO : votre nom exact en H1, c'est le signal principal pour Google -->
       <h1>Mathias Vessiere</h1>
-
-      <p class="bio">
-        Bienvenue sur ma page personnelle.
-        <!-- Ajoutez ici 2-3 phrases sur vous : passions, ce que vous faites, pourquoi cette page existe -->
-      </p>
+      <div class="rule" aria-hidden="true"></div>
+      <!-- Bio : ajoutez ici 2-3 phrases sur vous si vous le souhaitez plus tard -->
 
       <!-- Bloc contact : e-mail (mailto:) et Signal -->
       <div class="contact-buttons">
@@ -147,6 +177,6 @@ aeEeYRXDcXxJ7XbmIWFkvaZlxPq1Y3kJ
 
       <footer>© 2026 Mathias Vessiere</footer>
     </main>
-  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" nonce="tAlk4fV3QkoRAWfw3ou/ug==" data-cf-beacon='{"version":"2024.11.0","token":"36b4216ae2dc4d5488c249161e71fe1e","spa":2}' crossorigin="anonymous"></script>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" nonce="35h0c5Z3YFlt4h1b0/IL2w==" data-cf-beacon='{"version":"2024.11.0","token":"36b4216ae2dc4d5488c249161e71fe1e","spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
