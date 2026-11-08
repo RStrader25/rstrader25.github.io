@@ -36,11 +36,12 @@
         justify-content: center;
         padding: 24px;
         background:
-          radial-gradient(ellipse 60% 40% at 50% 0%, rgba(92, 107, 192, 0.18), transparent),
-          #0d1021;
+          radial-gradient(ellipse 90% 65% at 50% 0%, rgba(92, 107, 192, 0.35), rgba(92, 107, 192, 0.10) 45%, transparent 75%),
+          linear-gradient(180deg, #171b36 0%, #0d1021 60%, #090b19 100%);
+        background-attachment: fixed;
       }
       .card {
-        background: #161a30;
+        background: #1b2040;
         max-width: 560px;
         width: 100%;
         border-radius: 20px;
@@ -175,8 +176,11 @@ aeEeYRXDcXxJ7XbmIWFkvaZlxPq1Y3kJ
 -----END PGP PUBLIC KEY BLOCK-----</pre>
       </details>
 
-      <footer>© 2026 Mathias Vessiere</footer>
+      <footer>© <span id="annee">2026</span> Mathias Vessiere</footer>
+      <script>
+        document.getElementById("annee").textContent = new Date().getFullYear();
+      </script>
     </main>
-  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" nonce="m+JC1F9QWVYGEKJ1zCDvkA==" data-cf-beacon='{"version":"2024.11.0","token":"36b4216ae2dc4d5488c249161e71fe1e","spa":2}' crossorigin="anonymous"></script>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" nonce="RszbvWMA5MhkIDLK/oD61A==" data-cf-beacon='{"version":"2024.11.0","token":"36b4216ae2dc4d5488c249161e71fe1e","spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
